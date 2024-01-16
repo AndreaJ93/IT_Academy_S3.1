@@ -293,8 +293,68 @@ describe('Function "orderByYear"', () => {
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Drama')).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, 'Drama')).not.toBeNaN();
+  });
+
+  it('should return the average score of movies selecting only the genre. With 2 decimals', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'Dangal',
+        year: 2016,
+        director: 'Nitesh Tiwari',
+        duration: '2h 41min',
+        genre: ['Action', 'Biography', 'Drama', 'Sport'],
+        score: 8.6
+      },
+      {
+        title: 'Raging Bull',
+        year: 1980,
+        director: 'Martin Scorsese',
+        duration: '2h 9min',
+        genre: ['Biography', 'Drama', 'Sport'],
+        score: 8.2
+      },
+      {
+        title: 'Warrior',
+        year: 2011,
+        director: 'Gavin O"Connor',
+        duration: '2h 20min',
+        genre: ['Drama', 'Sport'],
+        score: 8.2
+      },
+      {
+        title: 'Rush',
+        year: 2013,
+        director: 'Ron Howard',
+        duration: '2h 3min',
+        genre: ['Action', 'Biography', 'Drama', 'History', 'Sport'],
+        score: 8.1
+      },
+      {
+        title: 'Million Dollar Baby',
+        year: 2004,
+        director: 'Clint Eastwood',
+        duration: '2h 12min',
+        genre: ['Drama', 'Sport'],
+        score: 8.1
+      },
+      {
+        title: 'Rocky',
+        year: 1976,
+        director: 'John G. Avildsen',
+        duration: '2h',
+        genre: ['Drama', 'Sport'],
+        score: 8.1
+      },
+    ], 'Sport')).toBe(8.22);
   });
 });
 
